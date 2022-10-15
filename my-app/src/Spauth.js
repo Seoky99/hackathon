@@ -1,3 +1,4 @@
+import { fetchUser, fetchUserPlaylists } from "./Spinfo.js"
 const authorizeUrl = "https://accounts.spotify.com/authorize?";
 const tokenURL = "https://accounts.spotify.com/api/token";
 const redirect = "http://localhost:3000/search";
@@ -53,5 +54,8 @@ function handleAuthorizationResponse() {
     console.log("Access Token: " + localStorage.getItem("access_token"));
     localStorage.setItem("refresh_token", data.refresh_token);
     console.log("Refresh Token: " + localStorage.getItem("refresh_token"));
+
+    fetchUser()
+    fetchUserPlaylists()
   }
 }
