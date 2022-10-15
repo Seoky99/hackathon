@@ -160,7 +160,8 @@ export function getSpecifiedPlaylists(spec) {
  * - [t.duration_ms] is the duration of the song in ms.
  * - [t.album.images] is an array of 3 images just like for playlists.
  * - [t.name] is the name of the track.
- * - [t.uri] is a uri that can be used to play the track w/ Web Playback
+ * - [t.uri] is a uri that can be used to play the track w/ Web Playback.
+ * - [t.id] is a unique id for the track.
  * 
  * @param {Array<JSON>} playlists A list of playlists whose tracks to get.
  */
