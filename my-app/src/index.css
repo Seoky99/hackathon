@@ -5,6 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: aquamarine;
+  background-image: url(../public/background.jpg);
+  background-size: 170vw;
+  background-position-y: 100vw;
+  background-position-x: 140vw;
 }
 
 code {
