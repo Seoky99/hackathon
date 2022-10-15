@@ -1,5 +1,6 @@
 const authorizeUrl = "https://accounts.spotify.com/authorize?"
 const tokenURL = "https://accounts.spotify.com/api/token"
+const redirect = "http://localhost:3000/search"
 const querystring = require('querystring')
 const client_id = "081f734e46c44148a7d08dc1007ba8eb"
 const client_secret = "f0868f3ef7474734a5c5af35bd2cbd04"
@@ -10,14 +11,14 @@ export function fetchCode() {
     response_type: "code",
     scope: 'user-read-private user-read-email',
     state: "AAAAAAAAAAAAAAAA",
-    redirect_uri: "http://localhost:3000/"
+    redirect_uri: redirect
   })
 }
 
 export function fetchToken(code) {
   let body = "grant_type=authorization_code";
   body += "&code=" + code;
-  body += "&redirect_uri=" + encodeURI("http://localhost:3000/")
+  body += "&redirect_uri=" + encodeURI(redirect)
   body += "&client_id=" + client_id
   body += "&client_secret=" + client_secret
 
