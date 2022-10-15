@@ -1,0 +1,16 @@
+.form-container {
+  display: flex;
+  padding: 2rem;
+  justify-content: center;
+  margin-top: 20%;
+}
+
+.shower-title {
+  font-size: 2rem;
+}
+
+.input {
+  padding: 1.5rem;
+  font-size: 2rem;
+  border-radius: 1rem;
+}
