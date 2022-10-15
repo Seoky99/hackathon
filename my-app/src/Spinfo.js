@@ -188,5 +188,13 @@ export function flattenSongs(playlists) {
     }
   }
 
+
+
   return tracks
+}
+
+export function mapUris(songs) {
+  const allUris = songs.map(e => e.uri)
+  const withoutLocal = allUris.filter(uri => uri.indexOf("spotify:local") < 0)
+  return withoutLocal
 }
