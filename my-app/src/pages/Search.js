@@ -25,7 +25,7 @@ const Search = () => {
   return (
     <div>
       {!userAuthenticated ? (
-        <div>
+        <div className="search-header">
           <h1 className="search-title">Authenticating...</h1>
         </div>
       ) : (
