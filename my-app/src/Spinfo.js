@@ -1,4 +1,5 @@
 import { refreshToken } from './Spauth.js'
+import { bruteForceSearchSongs, searchSongs } from './search.js'
 const userUrl = "https://api.spotify.com/v1/me"
 const playlistUrl = "https://api.spotify.com/v1/me/playlists"
 const yoursongsUrl = "https://api.spotify.com/v1/me/tracks"
@@ -77,6 +78,14 @@ function handlePlaylistsResponse() {
 
           localStorage.setItem("user_playlists", JSON.stringify(data.items))
           console.log(JSON.parse(localStorage.getItem("user_playlists")))
+
+          let testSearch = bruteForceSearchSongs(flattenSongs(getAllPlaylists()), 5, 100)
+          let totalms = 0
+          testSearch.forEach(e => {
+            totalms += e.duration_ms
+          })
+          console.log(testSearch)
+          console.log(totalms / 60000.)
         }
         else if (this.status == 401) {
           refreshToken()
