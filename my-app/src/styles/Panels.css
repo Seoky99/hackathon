@@ -1,0 +1,12 @@
+.flex-parent-element {
+  display: flex;
+}
+
+.flex-child-element {
+  flex: 1;
+  margin: 10px;
+}
+
+.flex-child-element:first-child {
+  margin-right: 10px;
+}

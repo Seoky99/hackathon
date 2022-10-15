@@ -5,6 +5,7 @@ import NoPage from "./pages/NoPage";
 import Layout from "./pages/Layout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import "./styles/Home.css";
 
 function App() {
   return (
