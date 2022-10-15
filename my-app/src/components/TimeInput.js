@@ -11,18 +11,18 @@ function Search() {
   };
 
   return (
-    <div className="form-container">
+    <div className="page-container">
       <form onSubmit={handleSubmit}>
-        <label className="search-title">
-          Showering Time:
+        <label className="input-title">Showering Time:</label>
+        <div className="form-container">
           <input
             type="number"
             value={time}
             onChange={(e) => setTime(e.target.value)}
             className="input"
           />
-        </label>
-        <input type="submit" />
+          <input type="submit" value="Go!" className="submit-button" />
+        </div>
       </form>
     </div>
   );
