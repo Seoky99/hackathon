@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../styles/TimeInput.css";
+import "../styles/componentstyles/TimeInput.css";
 
 // The input of shower length is stored as "time."
 function Search() {

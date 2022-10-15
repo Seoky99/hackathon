@@ -7,16 +7,15 @@ const Search = () => {
   const [userAuthenticated, setuserAuthenticated] = useState(false);
 
   useEffect(() => {
-    if (window.location.search.length > 0) {
-      let code = null;
-      const queries = window.location.search;
-      if (queries.length > 0) {
-        const params = new URLSearchParams(queries);
-        code = params.get("code");
-        setuserAuthenticated(true);
-      }
-
+    let code = null;
+    const queries = window.location.search;
+    if (queries.length > 0) {
+      const params = new URLSearchParams(queries);
+      code = params.get("code");
+      setuserAuthenticated(true);
       fetchToken(code);
+    } else {
+      fetchCode();
     }
   }, []);
 
@@ -24,8 +23,10 @@ const Search = () => {
   //Note: just having this switched for now to test TimeInput, switch the order when done.
   return (
     <div>
-      {userAuthenticated ? (
-        <h1 className="search-title">Please authenticate first.</h1>
+      {!userAuthenticated ? (
+        <div className="search-header">
+          <h1 className="search-title">Authenticating...</h1>
+        </div>
       ) : (
         <TimeInput />
       )}

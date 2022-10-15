@@ -13,8 +13,19 @@ li {
   font-size: 15px;
 }
 
+.selected {
+  color: red;
+}
+
 a:link,
 a:visited {
   color: white;
   text-decoration: none;
+}
+.active {
+  color: red;
+}
+
+.inactive {
+  color: purple;
 }
