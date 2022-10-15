@@ -1,0 +1,20 @@
+ul {
+  display: flex;
+  justify-content: flex-end;
+  list-style-type: none;
+  margin-right: 10%;
+}
+
+li {
+  /* background-color: lightblue; */
+  padding: 1rem;
+  margin: 1rem;
+  display: inline;
+  font-size: 15px;
+}
+
+a:link,
+a:visited {
+  color: white;
+  text-decoration: none;
+}

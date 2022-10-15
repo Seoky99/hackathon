@@ -1,10 +1,11 @@
 import { Outlet, Link } from "react-router-dom";
+import "../styles/navbar.css";
 import "../styles/Home.css";
 
 const Layout = () => {
   return (
     <>
-      <nav>
+      <nav className="blue">
         <ul>
           <li>
             <Link to="/">Home</Link>
