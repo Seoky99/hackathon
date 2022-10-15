@@ -1,34 +1,44 @@
 .home-title {
-  color: rgb(87, 244, 247);
+  color: rgb(0, 225, 229);
   font-size: 150px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
-  padding-top: 10px;
+  padding-top: 50px;
+  padding-right: 5vw;
+  line-height: 3vw;
+  text-align: center;
 }
 
 .home-header {
-  color: rgb(56, 253, 224);
+  color: rgb(86, 251, 196);
   font-size: 50px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
   padding-left: 10vw;
-  line-height: 2.5vw;
+  line-height: 4vw;
+  text-align: center;
 }
 
-.paragraph {
-  color: rgb(70, 70, 255);
-  font-size: 50px;
-}
-
-.logo {
+.home-logo {
   height: 600px;
   width: 600px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
+  animation: spin 1s infinite
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }

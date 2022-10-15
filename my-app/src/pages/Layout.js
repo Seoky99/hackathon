@@ -1,6 +1,5 @@
 import { Outlet, NavLink } from "react-router-dom";
 import "../styles/componentstyles/navbar.css";
-import "../styles/pagestyles/Home.css";
 
 const Layout = () => {
   return (
