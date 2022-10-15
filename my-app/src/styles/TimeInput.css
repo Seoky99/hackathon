@@ -23,3 +23,31 @@
   color: rgb(70, 70, 255);
   font-size: 50px;
 }
+
+.form-container {
+  display: flex;
+  padding: 2rem;
+  justify-content: center;
+}
+
+.shower-title {
+  font-size: 2rem;
+}
+
+.input {
+  padding: 1.5rem;
+  font-size: 2rem;
+  border-radius: 1rem;
+}
+
+/* Removing up/down arrows for number input */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}

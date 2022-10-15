@@ -1,6 +1,7 @@
 import { useState } from "react";
-import "../styles/search.css";
+import "../styles/TimeInput.css";
 
+// The input of shower length is stored as "time."
 function Search() {
   const [time, setTime] = useState("");
 
@@ -12,7 +13,7 @@ function Search() {
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit}>
-        <label className="shower-title">
+        <label className="search-title">
           Showering Time:
           <input
             type="number"
