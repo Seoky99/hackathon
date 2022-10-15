@@ -8,3 +8,29 @@
   padding-top: 10px;
   font-weight: 600;
 }
+
+.about-header {
+  background-color: rgb(119, 255, 0);
+  color: rgb(0, 136, 255);
+  font-size: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-left;
+  justify-content: center;
+  text-align: center;
+}
+
+.paragraph {
+  background-color: rgb(83, 136, 136);
+  color: rgb(124, 198, 134);
+  font-size: 50px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: normal;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
