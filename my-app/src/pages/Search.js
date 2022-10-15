@@ -1,4 +1,4 @@
-import "../styles/TimeInput.css";
+import "../styles/componentstyles/TimeInput.css";
 import { fetchCode, fetchToken } from "../Spauth.js";
 import React, { useState, useEffect, useRef } from "react";
 import TimeInput from "../components/TimeInput";
@@ -14,8 +14,7 @@ const Search = () => {
       code = params.get("code");
       setuserAuthenticated(true);
       fetchToken(code);
-    }
-    else {
+    } else {
       fetchCode();
     }
   }, []);
