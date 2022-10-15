@@ -1,4 +1,4 @@
-import "../styles/About.css";
+import "../styles/pagestyles/About.css";
 
 const About = () => {
   return <h1 className="about-title">About Page</h1>;

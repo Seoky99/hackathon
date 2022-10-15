@@ -1,4 +1,4 @@
-import "../styles/TimeInput.css";
+import "../styles/componentstyles/TimeInput.css";
 import { fetchCode, fetchToken } from "../Spauth.js";
 import React, { useState, useEffect, useRef } from "react";
 import TimeInput from "../components/TimeInput";
