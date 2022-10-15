@@ -9,7 +9,7 @@ export function fetchCode() {
   window.location.href = authorizeUrl + querystring.stringify({
     client_id: "081f734e46c44148a7d08dc1007ba8eb",
     response_type: "code",
-    scope: 'user-read-private user-read-email',
+    scope: 'user-read-private user-read-email playlist-read-private user-library-read',
     state: "AAAAAAAAAAAAAAAA",
     redirect_uri: redirect
   })
