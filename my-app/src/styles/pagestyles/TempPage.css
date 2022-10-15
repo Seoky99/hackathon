@@ -1,0 +1,10 @@
+.list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.btn {
+  padding: 20px;
+  margin-left: 78%;
+}

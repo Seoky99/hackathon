@@ -1,6 +1,6 @@
 import logo from "../logo.svg";
-import "../styles/Home.css";
-import "../styles/Panels.css";
+import "../styles/pagestyles/Home.css";
+import "../styles/pagestyles/Panels.css";
 
 const Home = () => {
   return (
