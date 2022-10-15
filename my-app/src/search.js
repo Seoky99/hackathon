@@ -1,13 +1,12 @@
-function unsafeSearchSongs(songs, times) {
+export function unsafeSearchSongs(songs, times) {
     let time = convertToSecond(times)
     let length = songs.length
     let lengthCopy = songs.length
-    let songCopy = songs
+    let songCopy = [...songs]
     var showerSong = []
     var i = true
     var timer = 0
     var safety = 0
-    var safety2 = 0
     while(i) {
         var songInt = getRandomInt(0, lengthCopy-1)
         if(songCopy[songInt].duration_ms/1000+timer+2<time) {
@@ -16,8 +15,8 @@ function unsafeSearchSongs(songs, times) {
             timer += songs[songInt].duration_ms/1000
             lengthCopy -= 1
         }
-        safety2 += 1
-        if (safety2>length*2) {
+        safety += 1
+        if (safety>length*2) {
             var song = getRandomInt(0, length-1)
             if(songs[song].duration_ms/1000+timer+2<time) {
                 showerSong.push(songs[song])
@@ -27,15 +26,11 @@ function unsafeSearchSongs(songs, times) {
         if(timer+2>time && timer-2<time) {
             i = false
         }
-        safety += 1
-        if(safety>time*10) {
-            i = false
-        }
     }
     return showerSong
 }
 
-function searchSongs(songs, times) {
+export function searchSongs(songs, times) {
     let time = convertToSecond(times)
     let length = songs.length
     var showerSong = []
