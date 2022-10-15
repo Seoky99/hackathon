@@ -1,10 +1,6 @@
 import "../styles/About.css";
 import "../styles/Panels.css";
 
-var background_url = "https://www.pexels.com/photo/water-droplet-in-shallow-photo-45229/"
-
-var hook = "nearly 1.2 trillion gallons of water used in the United States annually [is used] just for showering."
-
 const About = () => {
   return (
     <>
@@ -98,19 +94,26 @@ const About = () => {
       <h2 className="paragraph">
         [1] https://www.epa.gov/watersense/showerheads
         <br></br>
+        <br></br>
         [2] https://www.portland.gov/water/water-efficiency-programs/save-water-home
+        <br></br>
         <br></br>
         [3] https://www.webmd.com/beauty/shower-how-often
         <br></br>
+        <br></br>
         [4] https://news.cornell.edu/stories/2016/08/campus-water-use-restrictions-remain-effect
+        <br></br>
         <br></br>
         [5] https://cornellsun.com/2020/10/26/second-ithaca-drought-in-five-years-threatens-water-supply-and-local-ecosystem/
         <br></br>
+        <br></br>
         [6] https://www.mic.com/impact/conserving-water-when-you-shower-is-as-easy-as-looking-at-a-clock-scientists-say-21813259
+        <br></br>
         <br></br>
         [7] https://www.waterworld.com/drinking-water/article/14174948/majority-of-americans-concerned-about-water-scarcity-survey-finds
         <br></br>
-
+        <br></br>
+        background image: https://www.pexels.com/photo/water-droplet-in-shallow-photo-45229/
       </h2>
 
     </>
