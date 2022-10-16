@@ -1,7 +1,7 @@
 import ListItem from "../components/ListItem";
 import "../styles/pagestyles/TempPage.css";
 import { useState } from "react";
-import { getAllPlaylists } from "../Spinfo";
+import { flattenSongs, getAllPlaylists, getSpecifiedPlaylists } from "../Spinfo";
 
 const TempPage = () => {
   const arrPlayLists = getAllPlaylists();
@@ -19,6 +19,7 @@ const TempPage = () => {
 
   const submitChecked = () => {
     console.log(checkedItems);
+    console.log(flattenSongs(getSpecifiedPlaylists(checkedItems)))
   };
 
   return (
@@ -36,7 +37,7 @@ const TempPage = () => {
           </div>
         ))}
       </ul>
-      <div className="btn-container">
+      <div className="btn-container" style={{ "padding-bottom": 20 }}>
         <button className="btn" onClick={submitChecked}>
           Draw From These Playlists!
         </button>
