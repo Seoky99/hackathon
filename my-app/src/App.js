@@ -4,6 +4,8 @@ import About from "./pages/About";
 import NoPage from "./pages/NoPage";
 import Layout from "./pages/Layout";
 import TempPage from "./pages/TempPage";
+import SongPage from "./pages/SongPage";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import "./styles/pagestyles/Home.css";
@@ -17,6 +19,7 @@ function App() {
           <Route path="search" element={<Search />} />
           <Route path="about" element={<About />} />
           <Route path="temppage" element={<TempPage />} />
+          <Route path="songpage" element={<SongPage currentSong="Hello" songArtist="Adele" albumCover="logo192.png" />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

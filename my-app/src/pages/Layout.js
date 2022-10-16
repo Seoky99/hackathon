@@ -48,6 +48,16 @@ const Layout = () => {
               TempPage
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/songpage"
+              style={({ isActive }) => ({
+                borderBottom: isActive ? "1px solid white" : "0px",
+              })}
+            >
+              SongPage
+            </NavLink>
+          </li>
         </ul>
       </nav>
 

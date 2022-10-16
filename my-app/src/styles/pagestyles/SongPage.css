@@ -1,0 +1,22 @@
+.songpage-header {
+    text-align: center;
+}
+
+.songpage-song {
+    text-align: center;
+}
+
+.songpage-artist {
+    text-align: center;
+}
+
+.songpage-albumcover {
+    text-align: center;
+}
+
+.cover {
+    max-width: 100%;
+    height: auto;
+    border: 5px solid black;
+    border-radius: 5px;
+}
