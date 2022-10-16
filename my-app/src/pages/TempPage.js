@@ -37,6 +37,12 @@ const TempPage = () => {
     console.log(checkedItems);
     console.log(generatedPlaylist);
 
+    let imagesJSON = {}
+    generatedPlaylist.forEach(song => {
+      imagesJSON[song.id] = song.album.images
+    })
+
+    localStorage.setItem("images_map", JSON.stringify(imagesJSON))
     localStorage.setItem("gen_playlist", JSON.stringify(generatedPlaylist));
 
     navigate("/songpage");
