@@ -18,13 +18,14 @@ const SongPage = ({ currentSong, songArtist, albumCover }) => {
             <h2 className="songpage-albumcover">
                 <img src={albumCover} className="cover" />
             </h2>
-            <SpotifyPlayer
-                autoPlay={true}
-                token={localStorage.getItem("access_token")}
-                uris={mapUris(JSON.parse(localStorage.getItem("gen_playlist")))}
-                name="Shower Music Player"
-            />
-
+            <div className="playback">
+                <SpotifyPlayer
+                    autoPlay={true}
+                    token={localStorage.getItem("access_token")}
+                    uris={mapUris(JSON.parse(localStorage.getItem("gen_playlist")))}
+                    name="Shower Music Player"
+                />
+            </div>
         </div>
 
     );
