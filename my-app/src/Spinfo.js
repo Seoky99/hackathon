@@ -209,3 +209,40 @@ export function mapUris(songs) {
   );
   return withoutLocal;
 }
+
+/**
+ * Generates a random playlist based on the playlists that were checked in TempPage.
+ * 
+ * Precondition: Call only after TempPage has been left.
+ * 
+ * Postcondition: [ localStorage.getItem("gen_playlist") ] will contain a new 
+ * randomly generated playlist.
+ * 
+ * @returns The newly generated playlist.
+ */
+export function generatePlaylist() {
+  const checkedItems = JSON.parse(localStorage.getItem("checks"))
+  const possibleSongs = flattenSongs(getSpecifiedPlaylists(checkedItems));
+
+  const generatedPlaylist = bruteForceSearchSongs(
+    possibleSongs,
+    parseInt(localStorage.getItem("goal")),
+    100
+  );
+  let finalDuration = 0
+  generatedPlaylist.forEach(song => {
+    finalDuration += song.duration_ms
+  })
+  let finalMinutes = Math.floor(finalDuration / 60000)
+  let finalSeconds = Math.floor((finalDuration / 60000 - finalMinutes) * 60)
+  localStorage.setItem("final_duration", finalMinutes + "m " + finalSeconds + "s")
+  localStorage.setItem("gen_playlist", JSON.stringify(generatedPlaylist));
+
+  let imagesJSON = {}
+  generatedPlaylist.forEach(song => {
+    imagesJSON[song.name] = song.album.images
+  })
+  localStorage.setItem("images_map", JSON.stringify(imagesJSON))
+
+  return generatedPlaylist
+}

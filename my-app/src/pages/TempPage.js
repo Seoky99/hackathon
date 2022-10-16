@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "../styles/componentstyles/Animation.css"
 import {
   flattenSongs,
+  generatePlaylist,
   getAllPlaylists,
   getSpecifiedPlaylists,
 } from "../Spinfo";
@@ -27,32 +28,9 @@ const TempPage = () => {
   console.log(getAllPlaylists());
 
   const submitChecked = () => {
-    const possibleSongs = flattenSongs(getSpecifiedPlaylists(checkedItems));
+    localStorage.setItem("checks", JSON.stringify(checkedItems))
 
-    console.log(possibleSongs);
-    const generatedPlaylist = bruteForceSearchSongs(
-      possibleSongs,
-      parseInt(localStorage.getItem("goal")),
-      100
-    );
-    console.log(checkedItems);
-    console.log(generatedPlaylist);
-
-    let finalDuration = 0
-    generatedPlaylist.forEach(song => {
-      finalDuration += song.duration_ms
-    })
-    let finalMinutes = Math.floor(finalDuration / 60000)
-    let finalSeconds = Math.floor((finalDuration / 60000 - finalMinutes) * 60)
-    localStorage.setItem("final_duration", finalMinutes + "m " + finalSeconds + "s")
-
-    let imagesJSON = {}
-    generatedPlaylist.forEach(song => {
-      imagesJSON[song.name] = song.album.images
-    })
-
-    localStorage.setItem("images_map", JSON.stringify(imagesJSON))
-    localStorage.setItem("gen_playlist", JSON.stringify(generatedPlaylist));
+    generatePlaylist()
 
     navigate("/songpage");
   };
