@@ -35,6 +35,7 @@ function makeTokenRequest(body) {
     "Basic " + btoa(client_id + ":" + client_secret)
   );
   xhr.send(body);
+
   xhr.onload = handleAuthorizationResponse;
 }
 

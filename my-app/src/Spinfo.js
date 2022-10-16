@@ -22,7 +22,6 @@ export function fetchUser() {
 function handleUserResponse() {
   if (this.status == 200) {
     var data = JSON.parse(this.responseText);
-    console.log(data);
     localStorage.setItem("user_id", data.id)
     console.log("User ID: " + localStorage.getItem("user_id"))
   }
@@ -79,6 +78,10 @@ function handlePlaylistsResponse() {
           localStorage.setItem("user_playlists", JSON.stringify(data.items))
           console.log(JSON.parse(localStorage.getItem("user_playlists")))
 
+          /*
+          
+          UNCOMMENT TO TEST SONG SEARCHING
+
           let testSearch = bruteForceSearchSongs(flattenSongs(getAllPlaylists()), 5, 100)
           let totalms = 0
           testSearch.forEach(e => {
@@ -86,6 +89,8 @@ function handlePlaylistsResponse() {
           })
           console.log(testSearch)
           console.log(totalms / 60000.)
+          
+          */
         }
         else if (this.status == 401) {
           refreshToken()
