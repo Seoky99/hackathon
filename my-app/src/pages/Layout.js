@@ -37,26 +37,6 @@ const Layout = () => {
               About
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/temppage"
-              style={({ isActive }) => ({
-                borderBottom: isActive ? "1px solid white" : "0px",
-              })}
-            >
-              TempPage
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/songpage"
-              style={({ isActive }) => ({
-                borderBottom: isActive ? "1px solid white" : "0px",
-              })}
-            >
-              SongPage
-            </NavLink>
-          </li>
         </ul>
       </nav>
 

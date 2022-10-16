@@ -26,7 +26,7 @@ function handleUserResponse() {
     var data = JSON.parse(this.responseText);
     localStorage.setItem("user_id", data.id);
     console.log("User ID: " + localStorage.getItem("user_id"));
-  } else if (this.status == 401) {
+  } else if (this.status === 401) {
     refreshToken();
   }
 }

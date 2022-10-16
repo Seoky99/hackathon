@@ -1,22 +1,37 @@
-.songpage-header {
-    text-align: center;
-}
-
-.songpage-song {
-    text-align: center;
-}
-
-.songpage-artist {
-    text-align: center;
-}
-
-.songpage-albumcover {
-    text-align: center;
+.flex-containerw {
+  display: flex;
+  flex-direction: column;
 }
 
 .cover {
-    max-width: 100%;
-    height: auto;
-    border: 5px solid black;
-    border-radius: 5px;
+  max-width: 100%;
+  height: auto;
+  border: 5px solid black;
+  border-radius: 5px;
+}
+.spotify-player {
+  align-self: stretch;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+}
+
+.header-container {
+  flex-grow: 1;
+
+  text-align: center;
+}
+
+.header-container2 {
+  flex-grow: 1;
+
+  text-align: center;
+}
+
+.header-container3 {
+  text-align: center;
+}
+
+.header-container4 {
+  text-align: center;
 }

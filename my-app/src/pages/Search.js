@@ -1,4 +1,4 @@
-import "../styles/componentstyles/TimeInput.css";
+import "../styles/componentstyles/Search.css";
 import { fetchCode, fetchToken, refreshToken } from "../Spauth.js";
 import React, { useState, useEffect, useRef } from "react";
 import TimeInput from "../components/TimeInput";
@@ -21,7 +21,7 @@ const Search = () => {
       const params = new URLSearchParams(queries);
       code = params.get("code");
 
-      localStorage.setItem("most_recent_code", code)
+      localStorage.setItem("most_recent_code", code);
 
       setuserAuthenticated(true);
 
@@ -43,6 +43,7 @@ const Search = () => {
       {!userAuthenticated ? (
         <div className="search-header">
           <h1 className="search-title">Authenticating...</h1>
+          <div class="loader"></div>
         </div>
       ) : (
         <TimeInput />

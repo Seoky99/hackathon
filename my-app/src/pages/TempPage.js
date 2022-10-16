@@ -1,6 +1,7 @@
 import ListItem from "../components/ListItem";
 import "../styles/pagestyles/TempPage.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   flattenSongs,
   getAllPlaylists,
@@ -9,6 +10,8 @@ import {
 import { bruteForceSearchSongs } from "../search";
 
 const TempPage = () => {
+  const navigate = useNavigate();
+
   const arrPlayLists = getAllPlaylists();
 
   const [checkedItems, setcheckedItems] = useState({});
@@ -35,6 +38,8 @@ const TempPage = () => {
     console.log(generatedPlaylist);
 
     localStorage.setItem("gen_playlist", JSON.stringify(generatedPlaylist));
+
+    navigate("/songpage");
   };
 
   return (

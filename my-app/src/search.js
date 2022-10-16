@@ -17,7 +17,7 @@ export function searchSongs(songs, goal) {
     // We have met a point where no songs in the entire original list can work.
     if (betterSongs.length === 0 && currentSongs.length === songs.length) break;
     // We have run out of better songs, but we can still replenish the list.
-    else if (betterSongs.length == 0) {
+    else if (betterSongs.length === 0) {
       currentSongs = [...songs];
       continue;
     }

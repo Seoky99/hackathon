@@ -25,6 +25,7 @@ function Search() {
         <label className="input-title">Showering Time:</label>
         <div className="form-container">
           <input
+            placeholder="Input shower time"
             type="number"
             value={time}
             onChange={(e) => setTime(e.target.value)}
