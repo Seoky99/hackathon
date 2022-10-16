@@ -1,18 +1,22 @@
 .search-header {
   color: rgb(56, 253, 224);
-  font-size: 4.5rem;
+  font-size: 3rem;
+  text-shadow: 2px 2px black;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid lightblue; /* Blue */
+  border: 16px solid #f3f3f3;
+  /* Light grey */
+  border-top: 16px solid lightblue;
+  /* Blue */
   border-bottom: 16px solid lightblue;
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  margin-left: 50px;
+  width: 80px;
+  height: 80px;
   animation: spin 2s linear infinite;
 }
 
@@ -20,6 +24,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }

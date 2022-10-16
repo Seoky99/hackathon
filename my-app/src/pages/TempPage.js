@@ -2,8 +2,10 @@ import ListItem from "../components/ListItem";
 import "../styles/pagestyles/TempPage.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../styles/componentstyles/Animation.css"
 import {
   flattenSongs,
+  generatePlaylist,
   getAllPlaylists,
   getSpecifiedPlaylists,
 } from "../Spinfo";
@@ -26,25 +28,16 @@ const TempPage = () => {
   console.log(getAllPlaylists());
 
   const submitChecked = () => {
-    const possibleSongs = flattenSongs(getSpecifiedPlaylists(checkedItems));
+    localStorage.setItem("checks", JSON.stringify(checkedItems))
 
-    console.log(possibleSongs);
-    const generatedPlaylist = bruteForceSearchSongs(
-      possibleSongs,
-      parseInt(localStorage.getItem("goal")),
-      100
-    );
-    console.log(checkedItems);
-    console.log(generatedPlaylist);
-
-    localStorage.setItem("gen_playlist", JSON.stringify(generatedPlaylist));
+    generatePlaylist()
 
     navigate("/songpage");
   };
 
   return (
     <div>
-      <ul className="list-container">
+      <ul className="list-container fade-in">
         {arrPlayLists.map((elt, i) => (
           <div className="listitem">
             <ListItem

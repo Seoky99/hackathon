@@ -1,6 +1,6 @@
 .about-title {
   color: rgb(63, 186, 242);
-  font-size: 150px;
+  font-size: 7rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,8 +9,29 @@
   font-weight: 600;
 }
 
+.intro-container {
+  display: flex;
+  background-color: rgb(13, 56, 56);
+  align-items: center;
+}
+
+.intro-header {
+  padding: 5rem 2rem 0rem 2rem;
+  font-size: 3rem;
+  color: rgb(124, 198, 134);
+}
+
+.intro-paragraph {
+  padding: 2rem;
+  color: rgb(110, 184, 120);
+  font-size: 1.2rem;
+  align-items: center;
+  justify-content: center;
+  font-weight: normal;
+}
+
 .about-header {
-  background-color: rgb(119, 255, 0);
+  background-color: navy;
   color: rgb(0, 136, 255);
   font-size: 50px;
   display: flex;
@@ -18,19 +39,130 @@
   align-items: flex-left;
   justify-content: center;
   text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: bold;
+  height: 200px;
 }
 
-.about-paragraph {
-  background-color: rgb(83, 136, 136);
-  color: rgb(124, 198, 134);
+.cite-header {
+  color: rgb(0, 136, 255);
   font-size: 50px;
+  display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-left;
   justify-content: center;
   text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+.global-header {
+  background-color: navy;
+  color: rgb(0, 136, 255);
+  font-size: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-left;
+  justify-content: center;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+.global-style {
+  margin-left: 20px;
+  margin-right: 20px;
+  border: 10px solid orange;
+}
+
+.global-style2 {
+  padding: 20px;
+}
+
+.care-container {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  background-color: rgb(13, 56, 56);
+  align-items: center;
+}
+
+.cite-container {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(13, 56, 56);
+  align-items: center;
+}
+
+.care-paragraph {
+  padding: 2rem;
+  color: rgb(110, 184, 120);
+  font-size: 1.5rem;
+  align-items: center;
+  justify-content: center;
   font-weight: normal;
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-top: 16px;
-  padding-bottom: 16px;
+}
+
+.showerimg {
+  height: 300px;
+  width: auto;
+  margin-right: 50px;
+}
+
+h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.cited {
+  padding: 2rem;
+  color: white;
+  font-size: 1rem;
+  align-items: center;
+  justify-content: center;
+  font-weight: normal;
+}
+
+.conserve-container {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(13, 56, 56);
+  align-items: center;
+}
+
+.steps-container {
+  background-color: rgb(13, 56, 56);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.step {
+  width: 20%;
+  height: 20rem;
+  padding: 30px;
+  background-color: #fff;
+  font-size: 1.7rem;
+}
+
+.step2 {
+  width: 20%;
+  height: 20rem;
+  padding: 30px;
+  background-color: #fff;
+  margin-top: 5%;
+  font-size: 1.7rem;
 }
