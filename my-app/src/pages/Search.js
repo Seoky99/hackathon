@@ -20,6 +20,9 @@ const Search = () => {
     if (queries.length > 0) {
       const params = new URLSearchParams(queries);
       code = params.get("code");
+
+      localStorage.setItem("most_recent_code", code)
+
       setuserAuthenticated(true);
 
       if (localStorage.getItem("access_token") != null) {

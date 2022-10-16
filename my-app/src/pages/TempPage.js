@@ -2,6 +2,7 @@ import ListItem from "../components/ListItem";
 import "../styles/pagestyles/TempPage.css";
 import { useState } from "react";
 import { flattenSongs, getAllPlaylists, getSpecifiedPlaylists } from "../Spinfo";
+import { bruteForceSearchSongs } from "../search";
 
 const TempPage = () => {
   const arrPlayLists = getAllPlaylists();
@@ -18,8 +19,12 @@ const TempPage = () => {
   console.log(getAllPlaylists());
 
   const submitChecked = () => {
+    const possibleSongs = flattenSongs(getSpecifiedPlaylists(checkedItems))
+    const generatedPlaylist = bruteForceSearchSongs(possibleSongs, parseInt(localStorage.getItem("goal")), 100)
     console.log(checkedItems);
-    console.log(flattenSongs(getSpecifiedPlaylists(checkedItems)))
+    console.log(generatedPlaylist)
+
+    localStorage.setItem("gen_playlist", JSON.stringify(generatedPlaylist))
   };
 
   return (
@@ -37,7 +42,7 @@ const TempPage = () => {
           </div>
         ))}
       </ul>
-      <div className="btn-container" style={{ "padding-bottom": 20 }}>
+      <div className="btn-container" style={{ "paddingBottom": 20 }}>
         <button className="btn" onClick={submitChecked}>
           Draw From These Playlists!
         </button>

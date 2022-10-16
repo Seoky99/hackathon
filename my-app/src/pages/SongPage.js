@@ -21,7 +21,7 @@ const SongPage = ({ currentSong, songArtist, albumCover }) => {
             <SpotifyPlayer
                 autoPlay={true}
                 token={localStorage.getItem("access_token")}
-                uris={mapUris(flattenSongs(getAllPlaylists()))}
+                uris={mapUris(JSON.parse(localStorage.getItem("gen_playlist")))}
                 name="Shower Music Player"
             />
 
