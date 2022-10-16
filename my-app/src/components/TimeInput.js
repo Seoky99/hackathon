@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/componentstyles/TimeInput.css";
+import "../styles/componentstyles/Animation.css"
 
 // The input of shower length is stored as "time."
 function Search() {
@@ -22,10 +23,10 @@ function Search() {
   return (
     <div className="page-container">
       <form onSubmit={handleSubmit}>
-        <label className="input-title">Showering Time:</label>
+        <label className="input-title fade-in">Showering Time:</label>
         <div className="form-container">
           <input
-            placeholder="Input shower time"
+            placeholder="Input desired time (min)"
             type="number"
             value={time}
             onChange={(e) => setTime(e.target.value)}

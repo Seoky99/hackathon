@@ -3,6 +3,8 @@ import { fetchCode, fetchToken, refreshToken } from "../Spauth.js";
 import React, { useState, useEffect, useRef } from "react";
 import TimeInput from "../components/TimeInput";
 import SpotifyPlayer from "react-spotify-web-playback";
+import "../styles/componentstyles/Animation.css"
+
 import {
   fetchUser,
   fetchUserPlaylists,
@@ -32,7 +34,9 @@ const Search = () => {
         fetchToken(code);
       }
     } else {
-      fetchCode();
+      setTimeout(() => {
+        fetchCode();
+      }, 1500);
     }
   }, []);
 
@@ -41,7 +45,7 @@ const Search = () => {
   return (
     <div>
       {!userAuthenticated ? (
-        <div className="search-header">
+        <div className="search-header fade-in">
           <h1 className="search-title">Authenticating...</h1>
           <div class="loader"></div>
         </div>

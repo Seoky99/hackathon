@@ -2,6 +2,7 @@ import ListItem from "../components/ListItem";
 import "../styles/pagestyles/TempPage.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "../styles/componentstyles/Animation.css"
 import {
   flattenSongs,
   getAllPlaylists,
@@ -50,7 +51,7 @@ const TempPage = () => {
 
   return (
     <div>
-      <ul className="list-container">
+      <ul className="list-container fade-in">
         {arrPlayLists.map((elt, i) => (
           <div className="listitem">
             <ListItem

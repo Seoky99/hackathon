@@ -9,18 +9,24 @@ import {
 } from "../Spinfo";
 import sound from "../alarm.mp3"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 const SongPage = ({ song, songArtist, albumCover }) => {
     const [currentImage, setCurrentImage] = useState(albumCover)
     const [currentSong, setCurrentSong] = useState(song)
     const [currentArtist, setCurrentArtist] = useState(songArtist)
+    const [active, setActive] = useState(false)
     const [timeUp, setTimeUp] = useState(false)
     const imagesJSON = JSON.parse(localStorage.getItem("images_map"))
+    const navigate = useNavigate();
+    const audio = new Audio(sound)
+
+    const navigateHome = (event) => {
+        navigate("/");
+    };
 
     const callback = (state) => {
-        console.log(imagesJSON)
-        console.log(imagesJSON[state.track.name])
-        console.log(state.track.name)
+        setActive(state.status === "READY")
 
         if (imagesJSON[state.track.name].length > 1)
             setCurrentImage(imagesJSON[state.track.name][1].url)
@@ -40,7 +46,7 @@ const SongPage = ({ song, songArtist, albumCover }) => {
         setCurrentArtist(artistString)
 
         if (state.isActive && state.progressMs == 0 && !state.isPlaying && state.nextTracks.length == 0) {
-            (new Audio(sound)).play()
+            (audio).play()
             setTimeUp(true)
         }
     }
@@ -48,7 +54,7 @@ const SongPage = ({ song, songArtist, albumCover }) => {
 
     return (
         <div className="flex-containerw">
-            {currentSong != null &&
+            {(currentSong != null && !timeUp) &&
                 <div>
                     <div className="header-container">
                         <h1>Currently Playing:</h1>
@@ -67,22 +73,35 @@ const SongPage = ({ song, songArtist, albumCover }) => {
                         </h2>
                     </div>
                 </div>}
-            {currentSong == null &&
+            {(currentSong == null && !timeUp) &&
                 <div>
                     <div className="header-container">
-                        <h1>Loading Spotify...</h1>
+                        {!active &&
+                            <h1>Compiling your playlist...</h1>
+                        }
+                        {active && <h1 style={{ fontSize: "48px", color: "rgb(63, 186, 242)", textShadow: "2px 2px black" }}>Press Play & Begin your shower!</h1>}
                     </div>
                 </div>}
+            {timeUp && <div>
+                <div className="header-container">
+                    <h1 style={{ fontSize: "48px", color: "rgb(63, 186, 242)", textShadow: "2px 2px black" }}>Times up!</h1>
+                    <button className="btn" style={{ margin: "auto", marginTop: 50 }} onClick={navigateHome}>
+                        Back to Home
+                    </button>
+                </div>
 
-            <div className="spotify-player">
+            </div>}
+
+            {!timeUp && <div className="spotify-player">
                 <SpotifyPlayer
                     callback={callback}
-                    autoPlay={true}
+                    autoPlay={false}
                     token={localStorage.getItem("access_token")}
                     uris={mapUris(JSON.parse(localStorage.getItem("gen_playlist")))}
                     name="Shower Music Player"
                 />
-            </div>
+            </div>}
+
         </div>
     );
 };
