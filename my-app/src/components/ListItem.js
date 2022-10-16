@@ -1,6 +1,10 @@
 import { Checkbox } from "@mui/material";
 import { useState } from "react";
 import "../styles/componentstyles/ListItem.css";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
 
 const ListItem = (props) => {
   const [checked, setChecked] = useState(false);
@@ -13,17 +17,30 @@ const ListItem = (props) => {
 
   return (
     <div className="item-container">
-      <h1> {props.playlistImage}</h1>
-      <h1> {props.playlistName}</h1>
-      <Checkbox
-        checked={checked}
-        onChange={handleChange}
-        inputProps={{ "aria-label": "controlled" }}
-      />
+      <Card variant="outlined" sx={{ maxWidth: 300 }}>
+        <CardMedia
+          component="img"
+          height="300"
+          image={props.playlistImage}
+          alt="playlist_image"
+        />
+        <CardContent>
+          <Typography align="center" gutterBottom variant="h4" component="div">
+            {props.playlistName}
+          </Typography>
+
+          <div className="checkbox-container">
+            <Checkbox
+              size="large"
+              checked={checked}
+              onChange={handleChange}
+              inputProps={{ "aria-label": "controlled" }}
+            />
+          </div>
+        </CardContent>
+      </Card>
     </div>
   );
 };
 
 export default ListItem;
-
-/**/

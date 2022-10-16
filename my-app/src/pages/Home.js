@@ -1,6 +1,6 @@
-import logo from "../logo.svg";
 import "../styles/pagestyles/Home.css";
 import "../styles/pagestyles/Panels.css";
+import waterdrop from "../waterdrop.jpg"
 
 const Home = () => {
   return (
@@ -12,7 +12,7 @@ const Home = () => {
         </h2>
       </div>
       <div className="flex-child-element">
-        <img src={logo} className="logo" alt="logo" />
+        <img src={waterdrop} className="home-logo" />
       </div>
     </div>
   );

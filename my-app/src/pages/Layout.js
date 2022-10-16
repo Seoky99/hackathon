@@ -1,6 +1,5 @@
 import { Outlet, NavLink } from "react-router-dom";
 import "../styles/componentstyles/navbar.css";
-import "../styles/pagestyles/Home.css";
 
 const Layout = () => {
   return (
@@ -46,6 +45,16 @@ const Layout = () => {
               })}
             >
               TempPage
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/songpage"
+              style={({ isActive }) => ({
+                borderBottom: isActive ? "1px solid white" : "0px",
+              })}
+            >
+              SongPage
             </NavLink>
           </li>
         </ul>

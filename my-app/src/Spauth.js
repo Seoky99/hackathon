@@ -10,7 +10,7 @@ export function fetchCode() {
   window.location.href = authorizeUrl + querystring.stringify({
     client_id: "081f734e46c44148a7d08dc1007ba8eb",
     response_type: "code",
-    scope: 'user-read-private user-read-email playlist-read-private user-library-read',
+    scope: 'user-read-private user-read-email playlist-read-private user-library-read streaming user-read-playback-state user-modify-playback-state',
     state: "AAAAAAAAAAAAAAAA",
     redirect_uri: redirect
   })
@@ -35,6 +35,7 @@ function makeTokenRequest(body) {
     "Basic " + btoa(client_id + ":" + client_secret)
   );
   xhr.send(body);
+
   xhr.onload = handleAuthorizationResponse;
 }
 

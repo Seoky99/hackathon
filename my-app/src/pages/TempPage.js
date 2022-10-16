@@ -1,16 +1,10 @@
 import ListItem from "../components/ListItem";
 import "../styles/pagestyles/TempPage.css";
 import { useState } from "react";
+import { getAllPlaylists } from "../Spinfo";
 
 const TempPage = () => {
-  const arrNames = [
-    ["exampleID1", "examplePIC1"],
-    ["exampleID2", "examplePIC2"],
-    ["exampleID3", "examplePIC3"],
-    ["exampleID4", "examplePIC4"],
-    ["exampleID5", "examplePIC5"],
-    ["exampleID6", "examplePIC6"],
-  ];
+  const arrPlayLists = getAllPlaylists();
 
   const [checkedItems, setcheckedItems] = useState({});
 
@@ -21,6 +15,8 @@ const TempPage = () => {
     });
   };
 
+  console.log(getAllPlaylists());
+
   const submitChecked = () => {
     console.log(checkedItems);
   };
@@ -28,18 +24,22 @@ const TempPage = () => {
   return (
     <div>
       <ul className="list-container">
-        {arrNames.map((elt, i) => (
-          <ListItem
-            key={i}
-            playlistName={elt[0]}
-            playlistImage={elt[1]}
-            setChange={handleCheckedChange}
-          />
+        {arrPlayLists.map((elt, i) => (
+          <div className="listitem">
+            <ListItem
+              key={i}
+              playlistName={elt["name"]}
+              playlistImage={elt["images"][0]["url"]}
+              setChange={handleCheckedChange}
+            />
+          </div>
         ))}
       </ul>
-      <button className="btn" onClick={submitChecked}>
-        Draw From These Playlists!
-      </button>
+      <div className="btn-container">
+        <button className="btn" onClick={submitChecked}>
+          Draw From These Playlists!
+        </button>
+      </div>
     </div>
   );
 };

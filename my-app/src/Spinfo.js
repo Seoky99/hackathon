@@ -1,4 +1,5 @@
 import { refreshToken } from "./Spauth.js";
+import { bruteForceSearchSongs, searchSongs } from "./search.js";
 const userUrl = "https://api.spotify.com/v1/me";
 const playlistUrl = "https://api.spotify.com/v1/me/playlists";
 const yoursongsUrl = "https://api.spotify.com/v1/me/tracks";
@@ -23,10 +24,9 @@ export function fetchUser() {
 function handleUserResponse() {
   if (this.status === 200) {
     var data = JSON.parse(this.responseText);
-    console.log(data);
     localStorage.setItem("user_id", data.id);
     console.log("User ID: " + localStorage.getItem("user_id"));
-  } else if (this.status === 401) {
+  } else if (this.status == 401) {
     refreshToken();
   }
 }
@@ -87,8 +87,20 @@ function handlePlaylistsResponse() {
 
           localStorage.setItem("user_playlists", JSON.stringify(data.items));
           console.log(JSON.parse(localStorage.getItem("user_playlists")));
-        } else if (this.status === 401) {
-          refreshToken();
+
+          /*
+          
+          UNCOMMENT TO TEST SONG SEARCHING
+
+          let testSearch = bruteForceSearchSongs(flattenSongs(getAllPlaylists()), 5, 100)
+          let totalms = 0
+          testSearch.forEach(e => {
+            totalms += e.duration_ms
+          })
+          console.log(testSearch)
+          console.log(totalms / 60000.)
+          
+          */
         }
       };
     }
@@ -188,4 +200,12 @@ export function flattenSongs(playlists) {
   }
 
   return tracks;
+}
+
+export function mapUris(songs) {
+  const allUris = songs.map((e) => e.uri);
+  const withoutLocal = allUris.filter(
+    (uri) => uri.indexOf("spotify:local") < 0
+  );
+  return withoutLocal;
 }
