@@ -109,6 +109,10 @@ const About = () => {
         <br></br>
         <br></br>
         background image: https://www.pexels.com/photo/water-droplet-in-shallow-photo-45229/
+        <br></br>
+        <br></br>
+        logo picture: https://pixabay.com/vectors/water-drop-crystal-ball-sphere-38389/
+
       </h2>
     </>
   );
