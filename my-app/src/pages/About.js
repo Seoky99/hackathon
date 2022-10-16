@@ -136,7 +136,7 @@ const About = () => {
           <div className="global-style">
             <div className="global-style2">
               <span style={{ fontWeight: "bold", color: "orange" }}>
-                Global Warning is no longer the exception.
+                Global Warming is no longer the exception.
                 <br></br>
                 <br></br>
                 It is the inevitability if the global situation continues as is.
