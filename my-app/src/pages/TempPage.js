@@ -38,6 +38,14 @@ const TempPage = () => {
     console.log(checkedItems);
     console.log(generatedPlaylist);
 
+    let finalDuration = 0
+    generatedPlaylist.forEach(song => {
+      finalDuration += song.duration_ms
+    })
+    let finalMinutes = Math.floor(finalDuration / 60000)
+    let finalSeconds = Math.floor((finalDuration / 60000 - finalMinutes) * 60)
+    localStorage.setItem("final_duration", finalMinutes + "m " + finalSeconds + "s")
+
     let imagesJSON = {}
     generatedPlaylist.forEach(song => {
       imagesJSON[song.name] = song.album.images

@@ -79,7 +79,16 @@ const SongPage = ({ song, songArtist, albumCover }) => {
                         {!active &&
                             <h1>Compiling your playlist...</h1>
                         }
-                        {active && <h1 style={{ fontSize: "48px", color: "rgb(63, 186, 242)", textShadow: "2px 2px black" }}>Press Play & Begin your shower!</h1>}
+                        {active &&
+                            <h1 style={{ fontSize: "48px", color: "rgb(63, 186, 242)", textShadow: "2px 2px black" }}>
+                                Press Play & Begin your shower!
+                            </h1>
+                        }
+                        {active &&
+                            <h1 style={{ fontSize: "24px", color: "rgb(63, 186, 242)", textShadow: "2px 2px black" }}>
+                                {"Duration: " + localStorage.getItem("final_duration")}
+                            </h1>
+                        }
                     </div>
                 </div>}
             {timeUp && <div>
