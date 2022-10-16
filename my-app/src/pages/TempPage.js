@@ -1,45 +1,52 @@
 import ListItem from "../components/ListItem";
 import "../styles/pagestyles/TempPage.css";
 import { useState } from "react";
+import { flattenSongs, getAllPlaylists, getSpecifiedPlaylists } from "../Spinfo";
+import { bruteForceSearchSongs } from "../search";
 
 const TempPage = () => {
-  const arrNames = [
-    ["exampleID1", "examplePIC1"],
-    ["exampleID2", "examplePIC2"],
-    ["exampleID3", "examplePIC3"],
-    ["exampleID4", "examplePIC4"],
-    ["exampleID5", "examplePIC5"],
-    ["exampleID6", "examplePIC6"],
-  ];
+  const arrPlayLists = getAllPlaylists();
 
   const [checkedItems, setcheckedItems] = useState({});
 
-  const handleCheckedChange = (name, checked) => {
+  const handleCheckedChange = (id, checked) => {
     setcheckedItems({
       ...checkedItems,
-      [name]: checked,
+      [id]: checked,
     });
   };
 
+  console.log(getAllPlaylists());
+
   const submitChecked = () => {
+    const possibleSongs = flattenSongs(getSpecifiedPlaylists(checkedItems))
+    const generatedPlaylist = bruteForceSearchSongs(possibleSongs, parseInt(localStorage.getItem("goal")), 100)
     console.log(checkedItems);
+    console.log(generatedPlaylist)
+
+    localStorage.setItem("gen_playlist", JSON.stringify(generatedPlaylist))
   };
 
   return (
     <div>
       <ul className="list-container">
-        {arrNames.map((elt, i) => (
-          <ListItem
-            key={i}
-            playlistName={elt[0]}
-            playlistImage={elt[1]}
-            setChange={handleCheckedChange}
-          />
+        {arrPlayLists.map((elt, i) => (
+          <div className="listitem">
+            <ListItem
+              key={i}
+              id={elt["id"]}
+              playlistName={elt["name"]}
+              playlistImage={elt["images"][0]["url"]}
+              setChange={handleCheckedChange}
+            />
+          </div>
         ))}
       </ul>
-      <button className="btn" onClick={submitChecked}>
-        Draw From These Playlists!
-      </button>
+      <div className="btn-container" style={{ "paddingBottom": 20 }}>
+        <button className="btn" onClick={submitChecked}>
+          Draw From These Playlists!
+        </button>
+      </div>
     </div>
   );
 };

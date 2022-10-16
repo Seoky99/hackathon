@@ -7,6 +7,7 @@ function Search() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    localStorage.setItem("goal", time)
     alert(`Placeholder: time value entered was: ${time}`);
   };
 

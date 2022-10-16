@@ -35,11 +35,20 @@ function makeTokenRequest(body) {
     "Basic " + btoa(client_id + ":" + client_secret)
   );
   xhr.send(body);
+
   xhr.onload = handleAuthorizationResponse;
 }
 
 export function refreshToken() {
   let rtoken = localStorage.getItem("refresh_token");
+
+  // If refresh token is undefined for any reason, just use most recent code to
+  // fetch a new access token instead.
+  if (rtoken === "undefined") {
+    fetchToken(localStorage.getItem("most_recent_code"))
+    return;
+  }
+
   let body = "grant_type=refresh_token";
   body += "&refresh_token=" + rtoken;
   body += "&client_id=" + client_id;

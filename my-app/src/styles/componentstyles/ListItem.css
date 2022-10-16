@@ -3,3 +3,14 @@
   background-color: #fff;
   justify-content: space-between;
 }
+
+.fitImage {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.checkbox-container {
+  justify-content: center;
+  text-align: center;
+}

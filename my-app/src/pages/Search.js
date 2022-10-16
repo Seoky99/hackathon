@@ -1,7 +1,15 @@
 import "../styles/componentstyles/TimeInput.css";
-import { fetchCode, fetchToken } from "../Spauth.js";
+import { fetchCode, fetchToken, refreshToken } from "../Spauth.js";
 import React, { useState, useEffect, useRef } from "react";
 import TimeInput from "../components/TimeInput";
+import SpotifyPlayer from "react-spotify-web-playback";
+import {
+  fetchUser,
+  fetchUserPlaylists,
+  flattenSongs,
+  getAllPlaylists,
+  mapUris,
+} from "../Spinfo";
 
 const Search = () => {
   const [userAuthenticated, setuserAuthenticated] = useState(false);
@@ -12,8 +20,17 @@ const Search = () => {
     if (queries.length > 0) {
       const params = new URLSearchParams(queries);
       code = params.get("code");
+
+      localStorage.setItem("most_recent_code", code)
+
       setuserAuthenticated(true);
-      fetchToken(code);
+
+      if (localStorage.getItem("access_token") != null) {
+        fetchUser();
+        fetchUserPlaylists();
+      } else {
+        fetchToken(code);
+      }
     } else {
       fetchCode();
     }
