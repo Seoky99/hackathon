@@ -2,7 +2,7 @@ import ListItem from "../components/ListItem";
 import "../styles/pagestyles/TempPage.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/componentstyles/Animation.css"
+import "../styles/componentstyles/Animation.css";
 import {
   flattenSongs,
   generatePlaylist,
@@ -28,11 +28,11 @@ const TempPage = () => {
   console.log(getAllPlaylists());
 
   const submitChecked = () => {
-    localStorage.setItem("checks", JSON.stringify(checkedItems))
+    localStorage.setItem("checks", JSON.stringify(checkedItems));
 
-    generatePlaylist()
+    generatePlaylist();
 
-    navigate("/songpage");
+    navigate("/randomizepage");
   };
 
   return (
@@ -41,7 +41,7 @@ const TempPage = () => {
         {arrPlayLists.map((elt, i) => (
           <div className="listitem">
             <ListItem
-              key={i}
+              key={elt["id"] + i}
               id={elt["id"]}
               playlistName={elt["name"]}
               playlistImage={elt["images"][0]["url"]}

@@ -5,6 +5,7 @@ import NoPage from "./pages/NoPage";
 import Layout from "./pages/Layout";
 import TempPage from "./pages/TempPage";
 import SongPage from "./pages/SongPage";
+import RandomizePage from "./pages/Randomize";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
@@ -19,6 +20,7 @@ function App() {
           <Route path="search" element={<Search />} />
           <Route path="about" element={<About />} />
           <Route path="temppage" element={<TempPage />} />
+          <Route path="randomizepage" element={<RandomizePage />} />
           <Route path="songpage" element={<SongPage />} />
           <Route path="*" element={<NoPage />} />
         </Route>

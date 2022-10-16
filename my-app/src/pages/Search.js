@@ -3,7 +3,7 @@ import { fetchCode, fetchToken, refreshToken } from "../Spauth.js";
 import React, { useState, useEffect, useRef } from "react";
 import TimeInput from "../components/TimeInput";
 import SpotifyPlayer from "react-spotify-web-playback";
-import "../styles/componentstyles/Animation.css"
+import "../styles/componentstyles/Animation.css";
 
 import {
   fetchUser,
@@ -47,7 +47,7 @@ const Search = () => {
       {!userAuthenticated ? (
         <div className="search-header fade-in">
           <h1 className="search-title">Authenticating...</h1>
-          <div class="loader"></div>
+          <div className="loader"></div>
         </div>
       ) : (
         <TimeInput />
