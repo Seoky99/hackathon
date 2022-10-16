@@ -81,7 +81,7 @@ const SongPage = ({ song, songArtist, albumCover }) => {
                         }
                         {active &&
                             <h1 style={{ fontSize: "48px", color: "rgb(63, 186, 242)", textShadow: "2px 2px black" }}>
-                                Press Play & Begin your shower!
+                                Press Play & Begin your Shower!
                             </h1>
                         }
                         {active &&
