@@ -7,8 +7,21 @@ import {
   getAllPlaylists,
   mapUris,
 } from "../Spinfo";
+import sound from "../alarm.mp3";
 
 const SongPage = ({ currentSong, songArtist, albumCover }) => {
+  const callback = (state) => {
+    console.log(state.isActive);
+    if (
+      state.isActive &&
+      state.progressMs == 0 &&
+      !state.isPlaying &&
+      state.nextTracks.length == 0
+    ) {
+      new Audio(sound).play();
+    }
+  };
+
   return (
     <div className="flex-containerw">
       <div className="header-container">
