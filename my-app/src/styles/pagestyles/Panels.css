@@ -2,7 +2,15 @@
   display: flex;
 }
 
-.flex-child-element {
+.flex-left-child-element {
+  flex: 1;
+  margin: 10px;
+}
+
+.flex-right-child-element {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex: 1;
   margin: 10px;
 }

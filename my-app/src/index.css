@@ -7,9 +7,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: aquamarine;
   background-image: url(../public/background.jpg);
-  background-size: 170vw;
-  background-position-y: 100vw;
-  background-position-x: 140vw;
+  background-size: 100vw;
+
+  /* background-size: 135vw;
+  background-position-y: 150vw;
+  background-position-x: -30vw; */
 }
 
 code {
