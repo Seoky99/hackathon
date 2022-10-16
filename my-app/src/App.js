@@ -19,7 +19,7 @@ function App() {
           <Route path="search" element={<Search />} />
           <Route path="about" element={<About />} />
           <Route path="temppage" element={<TempPage />} />
-          <Route path="songpage" element={<SongPage currentSong="Hello" songArtist="Adele" albumCover="logo192.png" />} />
+          <Route path="songpage" element={<SongPage />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

@@ -1,17 +1,11 @@
 import "../styles/pagestyles/About.css";
 import "../styles/pagestyles/Panels.css";
 
-var background_url =
-  "https://www.pexels.com/photo/water-droplet-in-shallow-photo-45229/";
-
-var hook =
-  "nearly 1.2 trillion gallons of water used in the United States annually [is used] just for showering.";
-
 const About = () => {
   return (
     <>
       <h1 className="about-title">About Page</h1>
-      <h2 className="paragraph">
+      <h2 className="about-paragraph">
         Nearly{" "}
         <span style={{ fontWeight: "bold", color: "red" }}> 1.2 trillion </span>
         gallons of water [are] used in the United States annually just for
@@ -33,7 +27,7 @@ const About = () => {
         <br></br>
       </h2>
       <p className="about-header">Why should I care?</p>
-      <h2 className="paragraph">
+      <h2 className="about-paragraph">
         In 2016, during one of the most severe drought experienced in Tompkins
         County, Cornell implemented restrictions on the use of potable water to
         converse their current water supply. In fact, they also made an
@@ -46,7 +40,7 @@ const About = () => {
         [5].
       </h2>
       <p className="about-header">What is this?</p>
-      <h2 className="paragraph">
+      <h2 className="about-paragraph">
         We designed this website to provide a fun and competitive way to
         conserve water during showers with 4 easy steps.
         <br></br>
@@ -60,7 +54,7 @@ const About = () => {
         target shower time.
       </h2>
       <p className="about-header">Does this work?</p>
-      <h2 className="paragraph">
+      <h2 className="about-paragraph">
         Studies have shown that people shorten their shower time when they have
         a shower monitor. This means that people are conscientious about the
         negative consequences of a long shower and actively want to reduce their
@@ -71,7 +65,7 @@ const About = () => {
         more actions need to be taken to conserve water, so this is a valid
         problem that people are concerned about [7].
       </h2>
-      <h2 className="paragraph">
+      <h2 className="about-paragraph">
         <span style={{ fontWeight: "bold", color: "orange" }}>
           Global Warning is not longer the exception.
           <br></br>
@@ -87,26 +81,34 @@ const About = () => {
         </span>
       </h2>
       <p className="about-header">Websites Used</p>
-      <h2 className="paragraph">
+      <h2 className="about-paragraph">
         [1] https://www.epa.gov/watersense/showerheads
+        <br></br>
         <br></br>
         [2]
         https://www.portland.gov/water/water-efficiency-programs/save-water-home
         <br></br>
+        <br></br>
         [3] https://www.webmd.com/beauty/shower-how-often
+        <br></br>
         <br></br>
         [4]
         https://news.cornell.edu/stories/2016/08/campus-water-use-restrictions-remain-effect
         <br></br>
+        <br></br>
         [5]
         https://cornellsun.com/2020/10/26/second-ithaca-drought-in-five-years-threatens-water-supply-and-local-ecosystem/
+        <br></br>
         <br></br>
         [6]
         https://www.mic.com/impact/conserving-water-when-you-shower-is-as-easy-as-looking-at-a-clock-scientists-say-21813259
         <br></br>
+        <br></br>
         [7]
         https://www.waterworld.com/drinking-water/article/14174948/majority-of-americans-concerned-about-water-scarcity-survey-finds
         <br></br>
+        <br></br>
+        background image: https://www.pexels.com/photo/water-droplet-in-shallow-photo-45229/
       </h2>
     </>
   );
