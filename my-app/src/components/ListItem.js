@@ -12,7 +12,7 @@ const ListItem = (props) => {
   let handleChange = () => {
     const newValue = !checked;
     setChecked(newValue);
-    props.setChange(props.playlistName, newValue);
+    props.setChange(props.id, newValue);
   };
 
   return (

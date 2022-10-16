@@ -8,10 +8,10 @@ const TempPage = () => {
 
   const [checkedItems, setcheckedItems] = useState({});
 
-  const handleCheckedChange = (name, checked) => {
+  const handleCheckedChange = (id, checked) => {
     setcheckedItems({
       ...checkedItems,
-      [name]: checked,
+      [id]: checked,
     });
   };
 
@@ -28,6 +28,7 @@ const TempPage = () => {
           <div className="listitem">
             <ListItem
               key={i}
+              id={elt["id"]}
               playlistName={elt["name"]}
               playlistImage={elt["images"][0]["url"]}
               setChange={handleCheckedChange}
