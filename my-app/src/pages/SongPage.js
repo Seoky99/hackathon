@@ -9,8 +9,6 @@ import {
 } from "../Spinfo";
 
 const SongPage = ({ currentSong, songArtist, albumCover }) => {
-  console.log(flattenSongs(getAllPlaylists()));
-
   return (
     <div>
       <h1 className="songpage-header">Currently Playing:</h1>
@@ -29,7 +27,7 @@ const SongPage = ({ currentSong, songArtist, albumCover }) => {
       <SpotifyPlayer
         autoPlay={true}
         token={localStorage.getItem("access_token")}
-        uris={mapUris(flattenSongs(getAllPlaylists()))}
+        uris={mapUris(JSON.parse(localStorage.getItem("gen_playlist")))}
         name="Shower Music Player"
       />
     </div>
