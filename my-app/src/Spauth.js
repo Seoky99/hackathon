@@ -1,4 +1,4 @@
-import { fetchUser, fetchUserPlaylists } from "./Spinfo.js"
+import { fetchUser, fetchUserPlaylists } from "./Spinfo.js";
 const authorizeUrl = "https://accounts.spotify.com/authorize?";
 const tokenURL = "https://accounts.spotify.com/api/token";
 const redirect = "http://localhost:3000/search";
@@ -7,13 +7,16 @@ const client_id = "081f734e46c44148a7d08dc1007ba8eb";
 const client_secret = "f0868f3ef7474734a5c5af35bd2cbd04";
 
 export function fetchCode() {
-  window.location.href = authorizeUrl + querystring.stringify({
-    client_id: "081f734e46c44148a7d08dc1007ba8eb",
-    response_type: "code",
-    scope: 'user-read-private user-read-email playlist-read-private user-library-read streaming user-read-playback-state user-modify-playback-state',
-    state: "AAAAAAAAAAAAAAAA",
-    redirect_uri: redirect
-  })
+  window.location.href =
+    authorizeUrl +
+    querystring.stringify({
+      client_id: "081f734e46c44148a7d08dc1007ba8eb",
+      response_type: "code",
+      scope:
+        "user-read-private user-read-email playlist-read-private user-library-read streaming user-read-playback-state user-modify-playback-state",
+      state: "AAAAAAAAAAAAAAAA",
+      redirect_uri: redirect,
+    });
 }
 
 export function fetchToken(code) {
@@ -64,7 +67,7 @@ function handleAuthorizationResponse() {
     localStorage.setItem("refresh_token", data.refresh_token);
     console.log("Refresh Token: " + localStorage.getItem("refresh_token"));
 
-    fetchUser()
-    fetchUserPlaylists()
+    fetchUser();
+    fetchUserPlaylists();
   }
 }

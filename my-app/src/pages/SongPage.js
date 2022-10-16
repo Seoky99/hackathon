@@ -1,6 +1,12 @@
 import "../styles/pagestyles/SongPage.css";
-import SpotifyPlayer from "react-spotify-web-playback"
-import { fetchUser, fetchUserPlaylists, flattenSongs, getAllPlaylists, mapUris } from "../Spinfo";
+import SpotifyPlayer from "react-spotify-web-playback";
+import {
+    fetchUser,
+    fetchUserPlaylists,
+    flattenSongs,
+    getAllPlaylists,
+    mapUris,
+} from "../Spinfo";
 
 const SongPage = ({ currentSong, songArtist, albumCover }) => {
     return (
@@ -16,18 +22,15 @@ const SongPage = ({ currentSong, songArtist, albumCover }) => {
                 <br></br>
             </h2>
             <h2 className="songpage-albumcover">
-                <img src={albumCover} className="cover" />
+                <img src={albumCover} className="cover" alt="album cover" />
             </h2>
-            <div className="playback">
-                <SpotifyPlayer
-                    autoPlay={true}
-                    token={localStorage.getItem("access_token")}
-                    uris={mapUris(JSON.parse(localStorage.getItem("gen_playlist")))}
-                    name="Shower Music Player"
-                />
-            </div>
+            <SpotifyPlayer
+                autoPlay={true}
+                token={localStorage.getItem("access_token")}
+                uris={mapUris(JSON.parse(localStorage.getItem("gen_playlist")))}
+                name="Shower Music Player"
+            />
         </div>
-
     );
 };
 
