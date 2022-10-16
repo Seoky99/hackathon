@@ -11,7 +11,7 @@ import {
 const SongPage = ({ currentSong, songArtist, albumCover }) => {
     const callback = (state) => {
         if (state.progressMs == 0 && !state.isPlaying && state.nextTracks.length == 0) {
-            console.log("Finished!")
+            new Audio("../alarm.mp3").play()
         }
     }
 
