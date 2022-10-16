@@ -19,6 +19,7 @@ const SongPage = ({ currentSong, songArtist, albumCover }) => {
                 <img src={albumCover} className="cover" />
             </h2>
             <SpotifyPlayer
+                autoPlay={true}
                 token={localStorage.getItem("access_token")}
                 uris={mapUris(flattenSongs(getAllPlaylists()))}
                 name="Shower Music Player"
