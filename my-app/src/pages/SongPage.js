@@ -18,7 +18,15 @@ const SongPage = ({ song, songArtist, albumCover }) => {
     const imagesJSON = JSON.parse(localStorage.getItem("images_map"))
 
     const callback = (state) => {
-        setCurrentImage(imagesJSON[state.track.id][1].url)
+        console.log(imagesJSON)
+        console.log(imagesJSON[state.track.name])
+        console.log(state.track.name)
+
+        if (imagesJSON[state.track.name].length > 1)
+            setCurrentImage(imagesJSON[state.track.name][1].url)
+        else
+            setCurrentImage(imagesJSON[state.track.name][0].url)
+
         setCurrentSong(state.track.name)
         let artistString = ""
         console.log(state.track.artists)
@@ -40,22 +48,31 @@ const SongPage = ({ song, songArtist, albumCover }) => {
 
     return (
         <div className="flex-containerw">
-            <div className="header-container">
-                <h1>Currently Playing:</h1>
-            </div>
-            <div className="header-container2">
-                <h2>{currentSong}</h2>
-            </div>
+            {currentSong != null &&
+                <div>
+                    <div className="header-container">
+                        <h1>Currently Playing:</h1>
+                    </div>
+                    <div className="header-container2">
+                        <h2 style={{ margin: 0 }}>{currentSong}</h2>
+                    </div>
 
-            <div className="header-container3">
-                <h2>{currentArtist}</h2>
-            </div>
+                    <div className="header-container3">
+                        <h2 style={{ margin: 0 }}>{currentArtist}</h2>
+                    </div>
 
-            <div className="header-container4">
-                <h2>
-                    <img src={currentImage} className="cover" alt="album cover" />
-                </h2>
-            </div>
+                    <div className="header-container4">
+                        <h2>
+                            <img src={currentImage} className="cover" alt="album cover" />
+                        </h2>
+                    </div>
+                </div>}
+            {currentSong == null &&
+                <div>
+                    <div className="header-container">
+                        <h1>Loading Spotify...</h1>
+                    </div>
+                </div>}
 
             <div className="spotify-player">
                 <SpotifyPlayer

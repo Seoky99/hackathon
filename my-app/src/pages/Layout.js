@@ -24,7 +24,7 @@ const Layout = () => {
               })}
               to="/search"
             >
-              Search
+              Get Started
             </NavLink>
           </li>
           <li>

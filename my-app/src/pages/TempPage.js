@@ -39,7 +39,7 @@ const TempPage = () => {
 
     let imagesJSON = {}
     generatedPlaylist.forEach(song => {
-      imagesJSON[song.id] = song.album.images
+      imagesJSON[song.name] = song.album.images
     })
 
     localStorage.setItem("images_map", JSON.stringify(imagesJSON))

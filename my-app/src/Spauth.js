@@ -16,6 +16,7 @@ export function fetchCode() {
         "user-read-private user-read-email playlist-read-private user-library-read streaming user-read-playback-state user-modify-playback-state",
       state: "AAAAAAAAAAAAAAAA",
       redirect_uri: redirect,
+      show_dialog: true
     });
 }
 
