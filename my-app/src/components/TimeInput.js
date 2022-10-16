@@ -7,13 +7,15 @@ function Search() {
   const [time, setTime] = useState("");
   const navigate = useNavigate();
 
-  const navigateToList = () => {
+  const navigateToList = (event) => {
+    event.preventDefault();
+    localStorage.setItem("goal", time);
     navigate("/temppage");
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    localStorage.setItem("goal", time)
+    localStorage.setItem("goal", time);
     alert(`Placeholder: time value entered was: ${time}`);
   };
 
