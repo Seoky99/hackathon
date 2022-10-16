@@ -1,9 +1,15 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/componentstyles/TimeInput.css";
 
 // The input of shower length is stored as "time."
 function Search() {
   const [time, setTime] = useState("");
+  const navigate = useNavigate();
+
+  const navigateToList = () => {
+    navigate("/temppage");
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -21,7 +27,12 @@ function Search() {
             onChange={(e) => setTime(e.target.value)}
             className="input"
           />
-          <input type="submit" value="Go!" className="submit-button" />
+          <input
+            type="submit"
+            value="Go!"
+            className="submit-button"
+            onClick={navigateToList}
+          />
         </div>
       </form>
     </div>
