@@ -7,11 +7,12 @@ import {
     getAllPlaylists,
     mapUris,
 } from "../Spinfo";
+import sound from "../alarm.mp3"
 
 const SongPage = ({ currentSong, songArtist, albumCover }) => {
     const callback = (state) => {
         if (state.progressMs == 0 && !state.isPlaying && state.nextTracks.length == 0) {
-            new Audio("../alarm.mp3").play()
+            (new Audio(sound)).play()
         }
     }
 
